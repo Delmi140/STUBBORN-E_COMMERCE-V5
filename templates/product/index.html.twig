@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}Boutique{% endblock %}
 
 {% block body %}
 
@@ -23,21 +23,16 @@
         <li class="nav-item">
           <a class="nav-link" href="http://127.0.0.1:8000/product">Boutique</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Panier</a>
-        </li>
       </ul>
     </div>
-    
   </div>
 </nav>
 
 <main>
-    <div><h1>Page d'Acceuil</h1></div>
+
     <div>
-         <h2>Produits</h2>
+         <h1>Produits</h1>
     </div>
-    <div>
     <div class="row">
 
     {% for product in products %}
@@ -57,7 +52,7 @@
 
     </div>
 
-    </div>
+
 </main>
 
 
@@ -71,6 +66,4 @@
 </footer>
 
 
-
-    
 {% endblock %}

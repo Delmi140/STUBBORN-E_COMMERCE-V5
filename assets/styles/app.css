@@ -6,3 +6,19 @@ footer {
     text-align: center;
     margin-top: 50px;
 }
+
+.producthome{
+    display: flex;
+    flex-direction: row;
+    
+    margin: 50px;
+}
+
+.card{
+    margin: 50px;
+}
+
+.image-product{
+    width : 100px;
+    height : 100px;
+}
