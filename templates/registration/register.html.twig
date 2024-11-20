@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}S'inscrire{% endblock %}
 
 {% block body %}
 
@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="http://127.0.0.1:8000/">Accueil</a>
+          <a class="nav-link" href="http://127.0.0.1:8000">Accueil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="http://127.0.0.1:8000/register">S'inscrire</a>
@@ -20,25 +20,29 @@
         <li class="nav-item">
           <a class="nav-link" href="http://127.0.0.1:8000/login">Se connecter</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Boutique</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Panier</a>
-        </li>
       </ul>
     </div>
-    
   </div>
 </nav>
 
-<main>
-    <div><h1>Page d'Acceuil</h1></div>
-    <div>
-         <h2>Produits</h2>
-    </div>
-    <div>
 
+<main>
+    <div>
+        <h1>S'inscrire</h1>
+
+        {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.name) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.delivery_address) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe:'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn btn-secondary">S'inscrire</button>
+        {{ form_end(registrationForm) }}
     </div>
 </main>
 
@@ -52,7 +56,4 @@
     </div>
 </footer>
 
-
-
-    
 {% endblock %}
