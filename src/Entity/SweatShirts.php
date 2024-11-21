@@ -5,8 +5,11 @@ namespace App\Entity;
 use App\Repository\SweatShirtsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: SweatShirtsRepository::class)]
+#[Vich\Uploadable]
 class SweatShirts
 {
     #[ORM\Id]
@@ -29,8 +32,11 @@ class SweatShirts
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updated_at = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, type: 'string')]
     private ?string $attachment = null;
+
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'attachment')]
+    private ?File $attachmentFile = null;
 
     #[ORM\ManyToOne(inversedBy: 'sweatShirts')]
     private ?Size $size = null;
@@ -123,4 +129,23 @@ class SweatShirts
 
         return $this;
     }
+
+
+    public function getAttachmentFile(): ?File
+    {
+        return $this->attachmentFile;
+    }
+
+    
+    public function setAttachmentFile(?File $attachmentFile = null): void
+   {
+        $this->attachmentFile = $attachmentFile;
+        
+        if (null !== $attachmentFile){
+
+            $this->updated_at = new \DateTimeImmutable();
+        }
+        
+    }
+
 }
