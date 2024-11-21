@@ -13,7 +13,7 @@ class ProductController extends AbstractController
 
     public function __construct(private readonly EntityManagerInterface $em){}
 
-    #[Route('/product', name: 'shop_index')]
+    #[Route('/products', name: 'shop_index')]
     public function index(): Response
     {
         $products = $this->em->getRepository(SweatShirts::class)->findAll();
@@ -21,4 +21,15 @@ class ProductController extends AbstractController
             'products' => $products
             ]);
     }
+
+
+    #[Route('/product/{id<\d+>}', name: 'details_index')]
+    public function details(int $id): Response
+    {
+        $product = $this->em->getRepository(SweatShirts::class)->find($id);
+        return $this->render('product/details.html.twig',[
+            'product' => $product
+            ]);
+    }
+
 }

@@ -21,7 +21,7 @@
           <a class="nav-link" href="http://127.0.0.1:8000/login">Se connecter</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://127.0.0.1:8000/product">Boutique</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/products">Boutique</a>
         </li>
       </ul>
     </div>
@@ -44,7 +44,7 @@
         <div class="card-body">
             <h5 class="card-title">Nom: {{ product.name }}</h5>
             <p class="card-text"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
-         <a href="#" class="btn btn-primary">voir</a>
+         <a href="{{ path('details_index', {id: product.id}) }}" class="btn btn-primary">voir</a>
         </div>
     </div>
 

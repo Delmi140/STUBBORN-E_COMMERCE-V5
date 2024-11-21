@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+
+
+
+
+<main>
+    <div>
+        <h1>Produit</h1>
+        
+        <div class="row">
+
+    
+    <div class="card col-md-6 col-lg-4" style="width: 18rem;">
+        <div class=image-product >
+            <img src="{{ vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top" alt="..."> 
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Nom: {{ product.name }}</h5>
+            <p class="card-text"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
+         
+        </div>
+    </div>
+
+ 
+
+    </div>
+
+      
+</main>
+
+{% endblock %}
