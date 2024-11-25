@@ -5,27 +5,51 @@
 {% block body %}
 
 
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/">
+      <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/products">Boutique</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Panier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/login">Se déconnecter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
 <main>
-    <div>
-        <h1>Produit</h1>
-        
-        <div class="row">
+    <div class="row">
 
     
+
     <div class="card col-md-6 col-lg-4" style="width: 18rem;">
         <div class=image-product >
-            <img src="{{ vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top" alt="..."> 
+                <img src="{{ vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
             <h5 class="card-title">Nom: {{ product.name }}</h5>
             <p class="card-text"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
-         
+            <a href="#" class="btn btn-primary">Ajouter au panier</a>
+            <div>
+                {{product.size}}
+            <div>
         </div>
     </div>
 
- 
+   
 
     </div>
 
