@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de la commande{% endblock %}
+
+{% block body %}
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/">
+      <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/products">Boutique</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<main>
+    <div>
+        <div>
+    {{form_start(form) }}
+    <div>
+        <h1 class="h2 pb-2">Création de la commande</h1>
+        
+        
+        
+        <h3 class="fs-base fw-normal text-body text-uppercase pb-2 pb-sm-3">1.<span class"text-decoration-underline ms-1">Choisir votre livraison</span></h3>
+        {{ form_row(form.delivery_address) }}
+        
+    </div>
+    <div>
+        <h2 class="pb-2 pt-md-2 my-4 mt-lg-5">Récapitulatif de la commande <span class='fs-base fw-normal text-muted'>({{ recapCart|length }} produits)</span></h2>
+      {% set total = null %}
+      {% for product in recapCart %}
+        {% set total = total + (product.product.price * product.quantity) %}
+        <div class="d-sm-flex align-items-center border-top py-4">
+          <a class="d-inline-block flex-shrink-0 bg-secondary rouded-1 p-sm-2 p-xl-3 mb-2 mb-sm-0" href="">
+            <img src="{{ vich_uploader_asset(product.product, 'attachmentFile') }}" width="80" height="80" alt="image"></a>
+          <div class="w-100 pt-1 ps-sm-4">
+            <div class="d-block">
+              <div class="me-3" style="position: relative; top: 15px;">
+                <h3 class="h5 mb-2"><a href="">{{ product.product.name }}</a></h3>
+              </div>
+              <div>
+                <p class="mb-2">Quantité : x{{product.quantity}} - Prix du produit: {{(product.product.price / 100 )|number_format(2, ',')}} €</p>
+              </div>
+            </div>
+            <div class="nav justify-content-end mt-n4">
+              <a class="nav-link fs-xl p-2" href="" data-bs-toggle="tooltip" title="Remove">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+            </div>
+          </div>   
+        </div>
+      {% endfor %}
+
+    </div>
+    <div>
+        <div class="d-flex align-items-center justify-content-between border-top fs-xl pt-4 mb-4">
+          Total: <span class="fs-3 fw-semibold text-dark ms-2">{{ (total / 100)|number_format(2, ',') }} €</span>
+        </div> 
+        <div class="mt-5 text-center">
+            <button class="btn btn-lg btn-primary" type="submit" style="border-radius: 6px; position: relative; top: 20px;">Valider votre commande</button>
+        </div>
+
+    </div>
+      
+      
+    {{form_end(form) }}
+</div>
+
+</div>
+</main>
+
+<footer>
+    <div>
+        <p>Nom de la société : Stubborn</p>
+        <p>Adresse : Piccadilly Circus, London W1J 0DA, Royaume-Uni</p>
+        <p>Adresse de contact : stubborn@blabla.com</p>
+        <p>Slogan: Don't compromise on your look</p>
+    </div>
+</footer>
+
+{% endblock %}

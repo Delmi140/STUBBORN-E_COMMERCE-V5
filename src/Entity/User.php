@@ -54,6 +54,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
 
+    public function __toString()
+    {
+        return $this->delivery_address;
+    }
+
     public function __construct()
     {
         $this->createdAt = new DateTime('now');
