@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/">
+      <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/products">Boutique</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/cart">Panier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/login">Se déconnecter</a>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+</nav>
+
+
+<main class= "page-wrapper">
+  {% if cart|length > 0 %}
+    <div class= "container position-relative zindex-2 pt-5 pb-lg-5 pb-md-4 pb-2">
+    <form action="#">
+      <div class="row">
+        <div class="col-lg-12 offset-lg-1 pt-1">
+          <h1 class="pt-md-2 my-4 mt-lg-5">Mon panier</h1>
+          <p>Ajouter d'autres articles disponibles sur le site<a href="{{ path('shop_index') }}"> Voir les articles<a/></p>
+          {% set total = null %}  
+          {% for item in cart %}
+          {% set total = total + (item.product.price * item.quantity) %}
+          <div class="d-sm-flex align-items-center border-top py-4">
+        
+          <div class="w-100 pt-1 ps-sm-4">
+            <div class="card col-md-6 col-lg-4" style="width: 50rem;">
+              <div class=image-product >
+                <img src="{{ vich_uploader_asset(item.product, 'attachmentFile') }}" class="card-img-top" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Nom: {{item.product.name}}</h5>
+                <p class="card-text">Tailles: {{item.product.size}}</p>
+                <p> Quantité: {{item.quantity}}</p>
+                <a href="{{ path('cart_remove', {id: item.product.id}) }}" class="btn btn-primary">RETIRER DU PANIER</a>
+              </div>
+              <div class="text-end ms-auto">
+                <div class="fs-5 mb-2">Prix: {{ (item.product.price / 100)|number_format(2, ',')  }} €</div>
+                
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+        <div class="text-end ms-auto">
+          <h3>Total : {{ (total / 100)|number_format(2, ',') }} €</h3>
+        </div>
+        <div class="text-end ms-auto">
+          <button class="btn btn-lg btn-primary " type="submit">FINALISER MA COMMANDE</button>
+          </form>
+        </div>
+        <div class="text-end ms-auto">
+         <a href="{{ path('shop_index') }}" class="btn btn-primary">CONTINUER MES ACHATS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      {% else %}
+        <div>
+          <h2>Votre panier est vide</h2>
+          <p>Commencez votre shopping dés maintenant à travers nos articles</p>
+          <a href="{{ path('shop_index') }}" class="btn btn-primary">Voir les produits</a>
+        </div>
+    {% endif %}
+    
+    
+
+</main>
+
+
+<footer>
+    <div>
+        <p>Nom de la société : Stubborn</p>
+        <p>Adresse : Piccadilly Circus, London W1J 0DA, Royaume-Uni</p>
+        <p>Adresse de contact : stubborn@blabla.com</p>
+        <p>Slogan: Don't compromise on your look</p>
+    </div>
+</footer>
+
+
+
+{% endblock %}
