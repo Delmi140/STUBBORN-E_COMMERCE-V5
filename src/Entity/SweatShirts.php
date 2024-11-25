@@ -41,6 +41,8 @@ class SweatShirts
     #[ORM\ManyToOne(inversedBy: 'sweatShirts')]
     private ?Size $size = null;
 
+   
+
     public function getId(): ?int
     {
         return $this->id;

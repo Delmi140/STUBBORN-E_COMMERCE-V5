@@ -31,7 +31,13 @@
 
 
 <main>
-    <div class="row">
+
+    <div>
+      <h2>Produit</h2>
+
+    <div>
+    {{ form_start(form) }}
+      <div class="row">
 
     
 
@@ -42,15 +48,19 @@
         <div class="card-body">
             <h5 class="card-title">Nom: {{ product.name }}</h5>
             <p class="card-text"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
+            <div>
+                {{ form_row(form.size) }}
+            <div>
             <a href="#" class="btn btn-primary">Ajouter au panier</a>
-            <div>
-                {{product.size}}
-            <div>
+            
         </div>
     </div>
 
    
 
+    </div>
+
+    {{ form_end(form) }}
     </div>
 
       
