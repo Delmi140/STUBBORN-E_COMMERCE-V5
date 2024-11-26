@@ -6,11 +6,13 @@ use App\Form\OrderType;
 use App\Service\CartService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
+
 
 class OrderController extends AbstractController
 {
-    #[Route('/order/create', name: 'order_index')]
+
+    #[Route('/order/create', name: 'order_create')]
     public function index(CartService $cartService): Response
     {
 
@@ -27,4 +29,11 @@ class OrderController extends AbstractController
             'recapCart' => $cartService->getTotal()
         ]);
     }
+
+    #[Route('/order/verify', name: 'order_prepare', methods: ['POST'])]
+    public function preparedorder(): Response
+    {
+        return $this->render('/order/recap.html.twig');
+    }
+    
 }
