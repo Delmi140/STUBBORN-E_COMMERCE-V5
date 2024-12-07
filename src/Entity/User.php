@@ -65,6 +65,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString()
     {
         return $this->delivery_address;
+        return $this->name;
     }
 
     public function __construct()

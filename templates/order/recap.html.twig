@@ -23,6 +23,54 @@
 </nav>
 
 <main>
+  
+  <div>
+      <h1 class="h2 pb-2">Vérifier la commande</h1>
+      <div>
+          <h3 class="fs-base fw-normal text-body text-uppercase pb-2 pb-sm-3">1.<span class"text-decoration-underline ms-1">Adresse pour la livraison</span></h3>
+          {{ form_row(form.delivery_address) }}
+      </div>
+      
+      <div>
+        <h2 class="pb-2 pt-md-2 my-4 mt-lg-5">Récapitulatif de la commande <span class='fs-base fw-normal text-muted'>({{ recapCart|length }} produits)</span></h2>
+        {% set total = null %}
+        {% for product in recapCart %}
+          {% set total = total + (product.product.price * product.quantity) %}
+          <div class="d-sm-flex align-items-center border-top py-4">
+          <img src="{{ vich_uploader_asset(product.product, 'attachmentFile') }}" width="80" height="80" alt="image">
+          <div class="w-100 pt-1 ps-sm-4">
+            <div class="d-block">
+              <div class="me-3" style="position: relative; top: 15px;">
+                <h3 class="h5 mb-2">{{ product.product.name }}</h3>
+              </div>
+              <div>
+                <p class="mb-2">Quantité : x{{product.quantity}} - Prix du produit: {{(product.product.price / 100 )|number_format(2, ',')}} €</p>
+              </div>
+
+
+
+            </div>
+            
+
+          </div>
+
+          </div>
+        {% endfor %}
+
+
+      </div>
+      
+        <div>
+          <div class="d-flex align-items-center justify-content-between border-top fs-xl pt-4 mb-4">
+            Total: <span class="fs-3 fw-semibold text-dark ms-2">{{ (total / 100)|number_format(2, ',') }} €</span>
+        </div>
+
+        <div class="mt-5 text-center">
+
+          <a class="nav-link" href="http://127.0.0.1:8000/order/create-session-stripe"><button class="btn btn-lg btn-primary ">PAYER PAR STRIPE | {{ (total / 100)|number_format(2, ',') }}  €</button></a>
+        </div>
+      </div>
+  </div>
 
 </main>
 
