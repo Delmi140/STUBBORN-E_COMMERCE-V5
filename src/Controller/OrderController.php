@@ -72,11 +72,7 @@ class OrderController extends AbstractController
             'form' => $form->createView(),
             'recapCart' => $recapCart,
             
-            
-           
-            
-           
-          
+ 
             
         ]);
        
