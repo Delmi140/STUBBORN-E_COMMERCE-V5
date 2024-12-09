@@ -35,7 +35,7 @@
 <main>
     <div><h1>Page d'Acceuil</h1></div>
     <div>
-         <h2>Produits</h2>
+         <h2>Top Produits</h2>
     </div>
     <div>
     <div class="row">
@@ -49,7 +49,9 @@
         <div class="card-body">
             <h5 class="card-title">Nom: {{ product.name }}</h5>
             <p class="card-text"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
-         <a href="{{ path('details_index', {id: product.id}) }}" class="btn btn-primary">voir</a>
+            {% if app.user %}
+              <a href="{{ path('details_index', {id: product.id}) }}" class="btn btn-primary">voir</a>
+            {% endif %}
         </div>
     </div>
 

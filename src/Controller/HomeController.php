@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(): Response
     {
-        $products = $this->em->getRepository(SweatShirts::class)->findAll();
+        $products = $this->em->getRepository(SweatShirts::class)->findByIds([1,4,9]);
         return $this->render('home/index.html.twig', [
             'products' => $products
         ]);
