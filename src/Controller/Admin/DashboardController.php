@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Size;
 use App\Entity\SweatShirts;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -46,7 +47,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Sweat Shirts', 'fa-solid fa-basket-shopping', SweatShirts::class);
         yield MenuItem::linkToCrud('Taille', 'fa-solid fa-boxes-stacked', Size::class);
-        
+        yield MenuItem::linkToCrud('Utilisateurs', 'fa-solid fa-user', User::class);
         
     }
 }
