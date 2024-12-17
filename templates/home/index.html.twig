@@ -52,6 +52,16 @@
             {% if app.user %}
               <a href="{{ path('details_index', {id: product.id}) }}" class="btn btn-primary">voir</a>
             {% endif %}
+
+            {% if app.user %}
+              {# Si l'utilisateur est connecté, on cache le bouton #}
+              <style>
+                #mon-bouton {
+                  display: none;
+                }
+              </style>
+            {% endif %}
+             <button id="mon-bouton">Mon bouton</button>
         </div>
     </div>
 

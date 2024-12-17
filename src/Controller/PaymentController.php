@@ -29,6 +29,11 @@ class PaymentController extends AbstractController
     #[Route('/order/create-session-stripe', name:'payment_stripe') ]
     public function stripeChectout(CartService $cartService): RedirectResponse 
     {
+        if(!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+
+    }
+
         $productStripe = [];
 
         $recapCart = $cartService->getTotal() ;
@@ -67,12 +72,24 @@ class PaymentController extends AbstractController
 
     #[Route('/order/success/', name:'payment_success')]
     public function stripeSuccess(CartService $cartService): Response {
+
+        if(!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+
+        }
+
         return $this->render('order/success.html.twig');
 
     }
 
     #[Route('/order/error/', name:'payment_error')]
     public function stripeError(CartService $cartService): Response {
+        
+        if(!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+
+        }
+
         return $this->render('order/error.html.twig');
 
     }
