@@ -20,7 +20,7 @@
           <a class="nav-link" href="http://127.0.0.1:8000/products">Boutique</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Panier</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/cart">Panier</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="http://127.0.0.1:8000/login">Se déconnecter</a>
@@ -33,38 +33,63 @@
 
 <main>
 
-    <div>
-      <h2>Produit</h2>
-
-    <div>
-    {{ form_start(form) }}
-      <div class="row">
+    <div class="h1-home">
+      <h1>Produit</h1>
+    </div>
 
     
+    <div>
+      {{ form_start(form) }}
+        <div class="d-flex justify-content-center align-items-center ">
 
-    <div class="card col-md-6 col-lg-4" style="width: 18rem;">
-        <div class=image-product >
-                <img src="{{ vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top" alt="...">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Nom: {{ product.name }}</h5>
-            <p class="card-text"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
-            <div>
-                {{ form_row(form.size) }}
-            <div>
-            <a href="{{ path('cart_add', {id: product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+          <div class="card" style="width: 1000px; height: 500px;">
+
+            <div class="image-productprod d-flex justify-content-start">
+              <img src="{{ vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top" alt="...">
+            </div>
+
+            <div class="content-h5 d-flex justify-content-center ">
+              <h5 class="h5-product">Nom: {{ product.name }}</h5>
+              
+            </div>
+
+            <div class="d-flex justify-content-center ">
+              <p class="p-product"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
+            </div>
+
+
+            <div class=" btn-product d-flex justify-content-center ">
+              <a href="{{ path('cart_add', {id: product.id}) }}" class="btn btn-customproduct">Ajouter au panier</a>
+            </div>
+
+            <div class="content-size d-flex justify-content-end">
+              {{ form_row(form.size) }}
+        
+            </div>
+
             
+
+
+
+
+
+          </div>
+
+
         </div>
+      {{ form_end(form) }}
     </div>
-
-   
-
-    </div>
-
-    {{ form_end(form) }}
-    </div>
-
       
 </main>
+
+
+<footer>
+    <div>
+        <p class="p-footer">Nom de la société : Stubborn</p>
+        <p class="p-footer">Adresse : Piccadilly Circus, London W1J 0DA, Royaume-Uni</p>
+        <p class="p-footer">Adresse de contact : stubborn@blabla.com</p>
+        <p class="p-footer">Slogan: Don't compromise on your look</p>
+    </div>
+</footer>
 
 {% endblock %}

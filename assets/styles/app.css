@@ -77,6 +77,189 @@ body {
     background-color: #d30c0c;
     font-size: 1.2rem;
     width: 100px;
+    font-family: 'Just Another Hand', cursive;
+}
+
+/* Page ProductDetail */
+
+.image-productprod{
+    width : 300px;
+    height : 300px;
+    margin-top: 50px;
+}
+
+.content-h5{
+    margin-top: -300px;
+}
+
+.h5-product{
+    font-family: 'Just Another Hand', cursive;  
+}
+
+.content-size{
+    margin-top: -190px;
+    margin-right: 150px;
+    font-family: 'Just Another Hand', cursive;  
+}
+
+.btn-product{
+    margin-top: 80px;
+    font-family: 'Just Another Hand', cursive;
+    
+}
+
+.p-product{
+    font-family: 'Just Another Hand', cursive;
+}
+
+.btn-customproduct{
+    background-color: #d30c0c;
+}
+
+
+/* Panier */
+
+.p-cart{
+    color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.h3-cart{
+    color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.h5-cart{
+    font-family: 'Just Another Hand', cursive;  
+    margin-left: 300px;
+}
+
+.price-cart{
+    margin-left: 100px;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.size-cart{
+    margin-left: 120px;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.btn-cart{
+    margin-top: 80px;
+    font-family: 'Just Another Hand', cursive;
+    margin-right: 50px;
+  margin-top: 160px;
+}
+
+.btn-customcart{
+    background-color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.btn-cart1{
+    margin-left: 20px;
+}
+
+.btn-cart2{
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+/* Order */
+
+.btn-customorder{
+    background-color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+/* Order recap */
+
+.h2-recap{
+    color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.h5-recap{
+    color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.p-recap{
+    color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.btn-customrecap{
+    background-color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+/* Register */
+
+.form-register{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.card-register{
+    text-align: center;
+    padding-right: 200px;
+    padding-left: 200px;
+    background-color: white;
+    margin-top: 100px;
+}
+
+.content-register{
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.btn-customregister{
+    background-color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.btn-customregister2{
+    background-color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+    margin-bottom: 40px;
+}
+
+.h2-register{
+   color: #d30c0c;
+   font-family: 'Just Another Hand', cursive;
+   margin-top: 40px;
+   margin-bottom: 40px;
+}
+
+/* Login */
+
+.content-security{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.card-security{
+    text-align: center;
+    padding-right: 200px;
+    padding-left: 200px;
+    background-color: white;
+}
+
+.label-login{
+    font-family: 'Just Another Hand', cursive;
+}
+
+.btn-login{
+    font-family: 'Just Another Hand', cursive;
+    background-color: #d30c0c;
+    margin-bottom: 40px;
 }
 
 
@@ -94,3 +277,6 @@ footer {
     font-family: 'Just Another Hand', cursive;  
     color: #040404;
 }
+
+
+

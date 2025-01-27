@@ -37,52 +37,73 @@
     <form action="{{ path('order_create') }}">
       <div class="row">
         <div class="col-lg-12 offset-lg-1 pt-1">
-          <h1 class="pt-md-2 my-4 mt-lg-5">Mon panier</h1>
-          <p>Ajouter d'autres articles disponibles sur le site<a href="{{ path('shop_index') }}"> Voir les articles<a/></p>
+          <div class="h1-home">
+              <h1 class="pt-md-2 my-4 mt-lg-5">Mon panier</h1>
+          </div>
+
+          <p class="p-cart">Ajouter d'autres articles disponibles sur le site<a href="{{ path('shop_index') }}"> Voir les articles<a/></p>
           {% set total = null %}  
           {% for item in cart %}
           {% set total = total + (item.product.price * item.quantity) %}
           <div class="d-sm-flex align-items-center border-top py-4">
         
           <div class="w-100 pt-1 ps-sm-4">
-            <div class="card col-md-6 col-lg-4" style="width: 50rem;">
-              <div class=image-product >
+            <div class="card col-md-6 col-lg-4" style="width: 1000px; height: 400px;">
+              <div class="image-productprod d-flex justify-content-start" >
                 <img src="{{ vich_uploader_asset(item.product, 'attachmentFile') }}" class="card-img-top" alt="...">
               </div>
-              <div class="card-body">
-                <h5 class="card-title">Nom: {{item.product.name}}</h5>
-                <p class="card-text">Tailles: {{item.product.size}}</p>
-                <p> Quantité: {{item.quantity}}</p>
-                <a href="{{ path('cart_remove', {id: item.product.id}) }}" class="btn btn-primary">RETIRER DU PANIER</a>
+
+              <div class=" content-h5 d-flex justify-content-center">
+                <h5 class="h5-cart">Nom: {{item.product.name}}</h5>
+                <div class="price-cart">Prix: {{ (item.product.price / 100)|number_format(2, ',')  }} €</div>
+                <p class="size-cart">Tailles: {{item.product.size}}</p>
+
+
               </div>
-              <div class="text-end ms-auto">
-                <div class="fs-5 mb-2">Prix: {{ (item.product.price / 100)|number_format(2, ',')  }} €</div>
-                
+
+              <div class=" btn-cart d-flex justify-content-end ">
+                <a href="{{ path('cart_remove', {id: item.product.id}) }}" class="btn btn-customproduct">RETIRER DU PANIER</a>
+
               </div>
+
+
+              
             </div>
 
           </div>
         </div>
         {% endfor %}
-        <div class="text-end ms-auto">
-          <h3>Total : {{ (total / 100)|number_format(2, ',') }} €</h3>
+        <div class="d-flex justify-content-end">
+          <h3 class="h3-cart">Total : {{ (total / 100)|number_format(2, ',') }} €</h3>
+          
+          <div>
+
+            <div class="btn-cart1">
+              <button class="btn btn-lg btn btn-customcart " type="submit">FINALISER MA COMMANDE</button>
+            </form>
+            </div>
+
+            <div class="btn-cart2">
+              <a href="{{ path('shop_index') }}" class="btn  btn-lg btn-customcart">CONTINUER MES ACHATS</a>
+            </div>
+
+
+
+          </div>
+
         </div>
-        <div class="text-end ms-auto">
-          <button class="btn btn-lg btn-primary " type="submit">FINALISER MA COMMANDE</button>
-          </form>
-        </div>
-        <div class="text-end ms-auto">
-         <a href="{{ path('shop_index') }}" class="btn btn-primary">CONTINUER MES ACHATS</a>
-        </div>
+        
       </div>
     </div>
   </div>
 
       {% else %}
         <div>
-          <h2>Votre panier est vide</h2>
-          <p>Commencez votre shopping dés maintenant à travers nos articles</p>
-          <a href="{{ path('shop_index') }}" class="btn btn-primary">Voir les produits</a>
+          <div class="h1-home">
+            <h1>Votre panier est vide</h1>
+          </div>
+          <p class="p-cart">Commencez votre shopping dés maintenant à travers nos articles</p>
+          <a href="{{ path('shop_index') }}" class="btn btn-customcart">Voir les produits</a>
         </div>
     {% endif %}
     
@@ -93,10 +114,10 @@
 
 <footer>
     <div>
-        <p>Nom de la société : Stubborn</p>
-        <p>Adresse : Piccadilly Circus, London W1J 0DA, Royaume-Uni</p>
-        <p>Adresse de contact : stubborn@blabla.com</p>
-        <p>Slogan: Don't compromise on your look</p>
+        <p class="p-footer">Nom de la société : Stubborn</p>
+        <p class="p-footer">Adresse : Piccadilly Circus, London W1J 0DA, Royaume-Uni</p>
+        <p class="p-footer">Adresse de contact : stubborn@blabla.com</p>
+        <p class="p-footer">Slogan: Don't compromise on your look</p>
     </div>
 </footer>
 

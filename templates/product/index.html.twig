@@ -31,23 +31,38 @@
 
 <main>
 
-    <div>
-         <h1>Produits</h1>
+    <div class="h1-home">
+         <h1 >Boutique</h1>
     </div>
+
+    
     <div class="row">
+
+    <div class="card col-md-6 col-lg-4" style="width: 30rem;">
+        
+        <div class="card-body">
+            <h5 class="h5-home">Fourchette de prix </h5>
+            
+            
+        </div>
+    </div>
 
     {% for product in products %}
 
-    <div class="card col-md-6 col-lg-4" style="width: 18rem;">
-        <div class=image-product >
+    <div class="card col-md-6 col-lg-4" style="width: 30rem;">
+        <div class="image-producthome" >
                 <img src="{{ vich_uploader_asset(product, 'attachmentFile') }}" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
-            <h5 class="card-title">Nom: {{ product.name }}</h5>
-            <p class="card-text"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
+            <h5 class="h5-home">Nom: {{ product.name }}</h5>
+            <p class="p-home"><strong> Prix: {{(product.price / 100)|number_format(2,) }} € </strong></p>
+
+            <div class="d-flex justify-content-end ">
             {% if app.user %}
-              <a href="{{ path('details_index', {id: product.id}) }}" class="btn btn-primary">voir</a>
+              <a href="{{ path('details_index', {id: product.id}) }}" class="btn btn-customhome">voir</a>
             {% endif %}
+            </div>
+  
         </div>
     </div>
 
@@ -61,10 +76,10 @@
 
 <footer>
     <div>
-        <p>Nom de la société : Stubborn</p>
-        <p>Adresse : Piccadilly Circus, London W1J 0DA, Royaume-Uni</p>
-        <p>Adresse de contact : stubborn@blabla.com</p>
-        <p>Slogan: Don't compromise on your look</p>
+        <p class="p-footer">Nom de la société : Stubborn</p>
+        <p class="p-footer">Adresse : Piccadilly Circus, London W1J 0DA, Royaume-Uni</p>
+        <p class="p-footer">Adresse de contact : stubborn@blabla.com</p>
+        <p class="p-footer">Slogan: Don't compromise on your look</p>
     </div>
 </footer>
 
