@@ -1,11 +1,8 @@
 body {
-    background-color: skyblue;
+    background-color: #1c1c1c;
 }
 
-footer {
-    text-align: center;
-    margin-top: 50px;
-}
+
 
 .producthome{
     display: flex;
@@ -19,13 +16,81 @@ footer {
 }
 
 .image-product{
-    width : 100px;
-    height : 100px;
+    width : 200px;
+    height : 200px;
+   
+   
 }
 
 /* NavBar */
 
+.navbar{
+    background-color: #eeeeee
+}
+
 .custom-image {
     width: 200px;
     height: 100px;
+}
+
+.nav-link{
+    font-family: 'Just Another Hand', cursive;
+    color: #040404;
+}
+
+/* Home page */
+
+.h1-home{
+    text-align: center;
+    font-family: 'Just Another Hand', cursive;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #d30c0c;
+    
+}
+.h1-home h1 {
+    font-size: 5rem; /* Augmente la taille du texte (ajustez selon vos besoins) */
+}
+
+.h2-home{
+    color: #d30c0c;
+    font-family: 'Just Another Hand', cursive;
+    margin-left: 15px;
+}
+.h5-home{
+    margin-top: 50px;
+    font-family: 'Just Another Hand', cursive;
+}
+
+.p-home{
+    font-family: 'Just Another Hand', cursive;  
+}
+
+.image-producthome{
+    width : 200px;
+    height : 200px;
+    margin-left: 125px;
+   
+}
+
+.btn-customhome {
+    background-color: #d30c0c;
+    font-size: 1.2rem;
+    width: 100px;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    background-color: #eeeeee;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.p-footer{
+    font-family: 'Just Another Hand', cursive;  
+    color: #040404;
 }
