@@ -6,6 +6,9 @@
 parameters:
     product_attachments: /uploads/attachments
 services:
+    App\DataFixtures\UserFixture: ~
+    App\DataFixtures\SweatShirtFixture: ~
+    App\DataFixtures\SizeFixture: ~
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

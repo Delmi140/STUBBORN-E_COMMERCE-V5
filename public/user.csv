@@ -1,0 +1,2 @@
+"id","email","roles","password","name","delivery_address","token_registration","token_registration_life_time","is_verified","created_at"
+"1","nidhardelmi@hotmail.com","[""ROLE_ADMIN"", ""ROLE_USER""]","$2y$13$./efWPlGnr6vozMJSUKZpOeNLk/vzfuS5k8ft4qKcs20PgZOwiKaG","NIDHAR","80 rue Magenta , 75010 PARIS",NULL,"2025-01-28 14:18:50","1","2025-01-27 14:18:50"

@@ -13,6 +13,10 @@
 
 -Installation de test avec la ligne de commande « composer require --dev symfony/test-pack »
 
+-Installation de DoctrineFixturesBundle avec la ligne de commande «composer require orm-fixtures»
+
+-Installation de League/csv avec la ligne de commande « composer require league/csv»
+
 ## Installation du projet
 
 j'ai crée mon projet avec la ligne de commande "symfony new --webapp stubborn-ecommerce5"
@@ -26,3 +30,6 @@ Pour démarrer le projet symfony il faut taper la ligne de commande suivante : r
 Email: nidhardelmi@hotmail.com
 
 Password: Delmi1234
+
+
+
